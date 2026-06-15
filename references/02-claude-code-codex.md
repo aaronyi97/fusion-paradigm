@@ -10,7 +10,7 @@
 
 ## 调用机制
 
-- **调跨族 Codex（GPT）**：`Agent` 工具，`subagent_type: "codex:codex-rescue"`，**显式只读**（见下硬约束）。
+- **调跨族 Codex（GPT）**：`Agent` 工具，`subagent_type: "codex:codex-rescue"`（这是作者环境的名字，换成你装的 codex 插件实际 subagent 名），**显式只读**（见下硬约束）。
 - **调同族 opus 子 agent**：`Agent` 工具，`subagent_type` 填你的 agent 名，或传 `model: opus`。
 
 ## ⚠️ 只读硬约束（必须）

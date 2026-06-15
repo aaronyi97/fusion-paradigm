@@ -28,7 +28,7 @@ allowed-tools: Agent
 | 用户情况 | 加载 | 自动化程度 |
 |---|---|---|
 | 只有网页版 AI | `references/04-webui-manual-sop.md` | 零门槛·纯手动复制粘贴 |
-| 有 API key | `references/03-api-script.md` + `scripts/fusion_api.py` | 最省事·脚本自动化 |
+| 有 API key | `references/03-api-script.md` + `scripts/fusion_api.py` | 脚本骨架·需补 SDK 调用 |
 | Claude Code + Codex | `references/02-claude-code-codex.md` | 作者同款·半自动 |
 | Cursor / Windsurf 等单工具 | `references/02-claude-code-codex.md` 的"单工具"段 | 手动多轮 + 综合模板 |
 
@@ -47,3 +47,6 @@ allowed-tools: Agent
 ## 灵魂在哪
 
 完整的 7 步流程、两轮 prompt 模板、角色分工、防玩具自检，全在 **`references/01-protocol.md`**——那是跨工具通用的核心，不管你用什么家伙什，那套流程不变。先读它，再读你那一档的落地文件。
+
+## ⚠️ 一句话安全
+fusion 会把你的问题 / 方案发给**多个外部模型**——涉密、客户数据、未公开信息先脱敏或别用。详见 README「安全」段。

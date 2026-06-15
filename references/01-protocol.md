@@ -1,51 +1,71 @@
-# Fusion 协议（核心流程 · 跨工具通用）
+# Fusion Protocol (core flow · cross-tool)
 
-这是 fusion 范式的灵魂。不管你用什么工具，这套流程不变。它的全部价值，在于 **防止 fusion 退化成"多叫一个模型来点赞"**。
+This is the soul of the fusion paradigm. Whatever tool you use, this flow doesn't change. Its entire value is in **stopping fusion from degrading into "calling one more model just to nod along."**
 
-## 地基铁律
+## Foundational rule
 
-**没有第一轮独立判断，就不叫 fusion。**
+**No round-one independent judgment, no fusion.**
 
-- ✅ 真 fusion：先把问题（不含你的方案）给不同家模型，让它独立出判断，再对抗、再综合。
-- ❌ 假 fusion：把你的方案丢给另一个模型"看看有没有问题"——它会顺着你补几句风险，盲区和你重合。这是 reviewer，不是 fusion。
+- ✅ Real fusion: first give the problem (without your plan) to models from different families, let each produce an independent judgment, then have them push back, then synthesize.
+- ❌ Fake fusion: handing your plan to another model to "see if there's anything wrong" — it'll follow your lead and tack on a few risks, with blind spots that overlap yours. That's a reviewer, not fusion.
 
-## 7 步流程
+## 7-step flow
 
-### 1 · 触发判断
-先问：这值得 fusion 吗？
-- 值得：方案设计 / 架构 / 审计 / 复盘 / 重大决策（多角度、错了代价大）
-- 不值得：编码执行 / 简单事实 / 短翻译 / 日常小改 → 单模型，别 fusion
+### 1 · Trigger judgment
+First ask: is this worth a fusion?
+- Worth it: plan design / architecture / audit / retrospective / high-stakes decision (many angles, high cost of being wrong)
+- Not worth it: coding / execution / simple facts / short translation / routine small edits → one model, no fusion
 
-### 2 · 构造上下文包（防锚定的关键）
-给被调模型的，**只有**：问题、目标、约束、已知事实。
-**绝不给**：你的方案、倾向、结论。一旦给了，被调模型被你锚定，独立性归零。
+### 2 · Build the context pack (the key to anti-anchoring)
+What you give the called models is **only**: the problem, the goal, the constraints, the known facts.
+**Never give**: your plan, your leaning, your conclusion. The moment you do, the called model is anchored to you and its independence drops to zero.
 
-### 3 · 第一轮 · 独立输出
-让不同家模型基于上下文包，**独立**出它自己的方案 / 反对 / 风险，看不到你的方案。
+### 3 · Round one · independent output
+Have models from different families, working from the context pack, **independently** produce their own plan / objection / risks, without seeing your plan.
 
-### 4 · 第二轮 · 对抗审查
-现在才把你的方案给它，让它找漏洞、找分歧——不是润色，是挑错。
+### 4 · Round two · adversarial review
+Now, and only now, give them your plan and have them hunt for holes and disagreements — not polishing, picking it apart.
 
-### 5 · 综合（你来做，不许糊弄）
-把所有视角逐条处理，产出一张分歧表：
+### 5 · Synthesize (you do this, and don't fudge it)
+Process every view point by point and produce a disagreement table:
 
-| 争议点 | 各方意见 | 我的处理 |
+| Point of contention | What each side says | How I'm handling it |
 |---|---|---|
-| 某点 | A 说 X / B 说 Y | 采纳 X / 不采纳 / 组合 / 交人拍 |
+| Some point | A says X / B says Y | Adopt X / reject / combine / hand to a human |
 
-**禁止**用"综合来看大体可行"一句话糊过去。少数派意见不许无声吞掉——它常常正是抓到错的那一个。
+**Forbidden**: smoothing it over with a one-liner like "on balance it broadly works." Minority opinions must not be silently swallowed — they're often the very one that caught the mistake.
 
-### 6 · 人拍板
-真正的取舍点交给人，不让模型假装替人裁决。
+### 6 · Human decides
+The real trade-off points go to a human; don't let a model pretend to arbitrate on a human's behalf.
 
-### 7 · 留痕评估（证明真起作用）
-记一句：**这次 fusion 到底改变了什么判断？**
-- "什么都没改，只确认了我原来的想法" → 警惕，可能被锚定了（假 fusion）。
-- "抓出了我没看到的 X" → 这才是它值钱的地方。
+### 7 · Trace and evaluate (prove it actually worked)
+Note one line: **what did this fusion actually change about your judgment?**
+- "Changed nothing, just confirmed what I already thought" → be wary, you may have been anchored (fake fusion).
+- "Caught an X I hadn't seen" → that's where it earns its keep.
 
-## 两轮 Prompt 模板（直接复制改用）
+## Both-round prompt templates (copy and adapt directly)
 
-### 第一轮 · 防锚定独立判断
+Two versions of each round are kept below — an English version and a Chinese version, separately. Don't mix them; pick the language you're working in.
+
+### Round one · anti-anchoring independent judgment
+
+**English:**
+
+```
+You're an independent model brought in for a genuine second opinion. You can't see my plan — and don't try to guess what I'm leaning toward. Working only from the problem, goal, constraints, and evidence below, give your own judgment from first principles:
+1. Your own answer / verdict
+2. The blind spot most likely to be missed
+3. Which assumptions, if wrong, would overturn the conclusion
+4. The smallest action that would verify it
+No "broadly workable, but watch out for…" filler. If the evidence isn't enough, just say "don't know / needs verification."
+
+[Problem] …
+[Goal] …
+[Constraints] …
+[Known facts] …
+```
+
+**中文：**
 
 ```
 你是被调用的跨家族独立模型。你现在看不到我的方案，也别猜我会怎么想。
@@ -62,7 +82,24 @@
 【已知事实】…
 ```
 
-### 第二轮 · 对抗审查
+### Round two · adversarial review
+
+**English:**
+
+```
+Below is my plan. Your job is not to polish it, and not to look for reasons to back it.
+First, recap your round-one judgment in three sentences (if you now think round one was wrong, just say "overturning it" — don't rationalize). Then, point by point:
+- What do you agree with, and why?
+- What do you disagree with — and if I'm wrong, what's the fallout?
+- Which key assumptions did I miss?
+- Which calls should a human make, instead of a model auto-synthesizing them?
+- What's the smallest verifying action?
+You must include at least one "I'd block this / demand more evidence / change direction" call.
+
+[My plan] …
+```
+
+**中文：**
 
 ```
 下面是我的方案。你的任务不是润色，也不是找理由支持它。
@@ -77,23 +114,23 @@
 【我的方案】…
 ```
 
-## 角色分工（按任务选 1-2 个，写进第一轮的开头）
+## Role assignments (pick 1–2 per task, write into the start of round one)
 
-- **反方架构审计员**：找这个方案在真实使用中最可能失败的地方。默认立场——主方案可能是错的，除非证据支持。
-- **事实核查员**：只审事实。每条结论标"已验证 / 推断 / 未知"。没来源或无法复现的，一律不写成事实。
-- **方案竞争者**：独立提一个不同的可行方案。先别评论主方案，先自己设计，再列你方案的代价。
+- **Opposing architecture auditor**: find where this plan is most likely to fail in real use. Default stance — the main plan may be wrong unless the evidence supports it.
+- **Fact-checker**: review facts only. Tag every conclusion "verified / inferred / unknown." Anything with no source or that can't be reproduced is never written up as fact.
+- **Competing-solution designer**: independently propose a different viable solution. Don't comment on the main plan first — design your own first, then list the costs of your solution.
 
-## 防玩具自检（每次用完过一遍）
+## Toy self-check (run through it every time)
 
-| 信号 | 说明 | 玩具？ |
+| Signal | What it means | Toy? |
 |---|---|---|
-| 被调模型只补了几句"注意风险" | 被你锚定了 | ⚠️ 是 |
-| 几个模型都说"可行" | 可能一起错，尤其同家族 | ⚠️ 共识≠真相 |
-| 输出变长了但判断没变 | 仪式感赞同按钮 | ⚠️ 是 |
-| 抓出了你没看到的盲区 / 改变了判断 | 真起作用 | ✅ 不是 |
+| The called model only added a few "watch the risks" lines | It got anchored to you | ⚠️ Yes |
+| Several models all say "it works" | They may be wrong together, especially same-family | ⚠️ Consensus ≠ truth |
+| Output got longer but the judgment didn't change | Ceremonial approval button | ⚠️ Yes |
+| Caught a blind spot you hadn't seen / changed your judgment | Actually working | ✅ No |
 
-## 三条边界
+## Three boundaries
 
-1. **多模型共识 ≠ 真相**。它们可能一起错；judge / 综合者不是法官，只帮你理争议。
-2. **跨家族 > 同家族多开 > 单模型**。同公司模型盲区重叠，互审约等于没换人。拿不到跨族就明确标"降级为同族复核，独立性打折"。
-3. **最后拍板的是你**，不是模型。这是给你配帮手，不是把判断外包出去。
+1. **Multi-model consensus ≠ truth**. They can be wrong together; the judge / synthesizer isn't a court, it just helps you sort out the dispute.
+2. **Cross-family > multiple instances of the same family > a single model**. Same-company models have overlapping blind spots, so cross-review is roughly the same as not switching anyone in. If you can't get cross-family, explicitly tag it "downgraded to same-family review, independence discounted."
+3. **You make the final call**, not the models. This gives you a helper; it doesn't outsource the judgment.

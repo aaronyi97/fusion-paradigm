@@ -1,14 +1,32 @@
-# L0 落地 · 只有网页版 AI（零门槛 · 人人能做）
+# L0 setup · Web-UI AI only (zero barrier · anyone can do it)
 
-适合：你只有网页版的 ChatGPT、Claude、DeepSeek 等，没有 API、没有编程工具。**这一档不需要任何技术，纯手动，但照样是真 fusion。** 提示词都内联在下面，不用跳文件。
+Best for: you only have the web versions of ChatGPT, Claude, DeepSeek, etc. — no API, no coding tools. **This tier needs no technical skill at all and is fully manual, yet it's still real fusion.** The prompts are inlined below, so you never have to jump between files.
 
-## 第 1 步 · 判断值不值得
-方案设计 / 重要决策 / 复盘才用。查个事实、写段小东西，别折腾。
+## Step 1 · Decide whether it's worth it
+Only use it for plan design / important decisions / retrospectives. Don't bother for checking a fact or writing something small.
 
-> ⚠️ **先脱敏**：这一档要把你的问题和方案发给两个外部网页 AI。涉密 / 客户数据 / 未公开信息先抹掉或别用——你是同时把材料交给了多家供应商。
+> ⚠️ **Desensitize first**: this tier sends your problem and plan to two external web AIs. Strip out — or just don't include — anything confidential / customer data / non-public information. You're handing the material to multiple vendors at once.
 
-## 第 2 步 · 第一轮（两个不同家的 AI 各自独立答）
-打开**两个不同公司**的 AI（比如一个 ChatGPT、一个 Claude）。**先别告诉它们你自己的想法**，把下面这段分别发给它们俩（填进你的问题）：
+## Step 2 · Round one (two different-family AIs each answer independently)
+Open two AIs from **different companies** (say, one ChatGPT and one Claude). **Don't tell them your own thinking yet**; send each of them the block below (fill in your problem).
+
+**English:**
+
+```
+You're an independent model brought in for a genuine second opinion. You can't see my plan — and don't try to guess what I'm leaning toward. Working only from the problem, goal, constraints, and evidence below, give your own judgment from first principles:
+1. Your own answer / verdict
+2. The blind spot most likely to be missed
+3. Which assumptions, if wrong, would overturn the conclusion
+4. The smallest action that would verify it
+No "broadly workable, but watch out for…" filler. If the evidence isn't enough, just say "don't know / needs verification."
+
+[Problem] …
+[Goal] …
+[Constraints] …
+[Known facts] …
+```
+
+**中文：**
 
 ```
 你是被调用的独立模型。你现在看不到我的方案，也别猜我会怎么想。
@@ -22,10 +40,27 @@
 【已知事实】（填）
 ```
 
-各自存下它们的回答。
+Save each of their answers.
 
-## 第 3 步 · 第二轮（让它们挑你方案的错）
-现在把你自己的方案，加上下面这段，分别发给它们俩：
+## Step 3 · Round two (have them pick holes in your plan)
+Now take your own plan, add the block below, and send it to each of them.
+
+**English:**
+
+```
+Below is my plan. Your job is not to polish it, and not to look for reasons to back it.
+First, recap your round-one judgment in three sentences (if you now think round one was wrong, just say "overturning it" — don't rationalize). Then, point by point:
+- What do you agree with, and why?
+- What do you disagree with — and if I'm wrong, what's the fallout?
+- Which key assumptions did I miss?
+- Which calls should a human make, instead of a model auto-synthesizing them?
+- What's the smallest verifying action?
+You must include at least one "I'd block this / demand more evidence / change direction" call.
+
+[My plan] …
+```
+
+**中文：**
 
 ```
 下面是我的方案。你的任务不是润色，也不是找理由支持它。
@@ -40,8 +75,18 @@
 我的方案：（填）
 ```
 
-## 第 4 步 · 综合（开第三个对话，或随便丢给一个 AI）
-把两个 AI 的回答 + 你的方案，丢进任意一个对话，说：
+## Step 4 · Synthesize (open a third conversation, or just drop it into any AI)
+Take both AIs' answers + your plan, drop them into any conversation, and say:
+
+**English:**
+
+```
+Same problem, two independent judgments from different-family models, plus my plan.
+Lay it out as a disagreement table: consensus / conflicts / blind spots only one side raised.
+Don't settle it for me — list the points that genuinely need my decision.
+```
+
+**中文：**
 
 ```
 这是同一个问题，两个不同模型各自独立的判断，加上我的方案。
@@ -49,8 +94,8 @@
 不要替我下结论，把真正要我拍板的点列出来。
 ```
 
-## 第 5 步 · 你拍板
-看分歧表，自己决定。**最后拍板的是你，不是 AI。**
+## Step 5 · You decide
+Look at the disagreement table and decide for yourself. **The final call is yours, not the AI's.**
 
-## 一句话
-没有 API、没有编程工具，照样能做 fusion——核心从来不是工具，是"让不同家的 AI 先独立看，你再综合"这个动作。同一个 AI 问两遍效果弱很多（盲区重叠），一定要用**不同公司**的。
+## In one line
+No API, no coding tools, and you can still do fusion — the core was never the tooling, it's the act of "letting different-family AIs look independently first, then synthesizing yourself." Asking one AI twice is much weaker (overlapping blind spots); always use **different companies**.

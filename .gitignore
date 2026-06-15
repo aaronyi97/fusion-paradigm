@@ -1,0 +1,9 @@
+# secrets — 绝不提交
+*.key
+.env
+.env.*
+# python
+__pycache__/
+*.pyc
+# os
+.DS_Store

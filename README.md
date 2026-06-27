@@ -1,15 +1,68 @@
-# Fusion
+# Fusion: Blind Second-Model Review for Hard AI Workflow Decisions
 
-> Don't let one AI grade its own homework. Bring in a different family, blind to your plan — then you decide.
+Don't let one AI grade its own homework.
 
-A multi-model collaboration skill. On a real judgment call, it makes your main AI pull in a model from a **different family** to form an independent view first, then synthesize, then **you** make the call. The point isn't "call more models" — it's to **stop the second model from rubber-stamping the first**.
+Fusion is a simple protocol for hard AI work:
+before showing a model your plan, give a different model family only the raw problem, goal, constraints, and evidence.
 
-> ## ⚠️ A note before you start
-> This is a multi-model collaboration **method** I actually use, plus the scaffolding I built around it, published as-is as an **experiment log**.
-> - **Not turnkey software.** It hasn't been broadly tested.
-> - **No promise it runs in your environment.** `scripts/fusion_api.py` is a reference skeleton — you wire up your own SDK calls.
-> - **I won't promise to answer issues or PRs**, and I don't debug personal setups. If it's useful, fork it and make it yours.
-> - The value is in the **method and the prompts**, not the code.
+Ask it for an independent verdict first.
+Then show your plan.
+Then synthesize the disagreement yourself.
+
+## Use Fusion when:
+- architecture decisions
+- spec planning
+- verification design
+- audits / retrospectives
+- important writing
+
+## Avoid Fusion when:
+- small edits
+- ordinary implementation
+- latency-sensitive work
+- simple facts or low-stakes drafting
+
+## Try it in 30 seconds
+
+Open two AIs from different companies (for example, ChatGPT + Claude).
+Paste this block into each one before showing your current plan:
+
+**English — Round 1 prompt:**
+
+```
+You're an independent model brought in for a genuine second opinion. You can't see my plan — and don't try to guess what I'm leaning toward. Working only from the problem, goal, constraints, and evidence below, give your own judgment from first principles:
+1. Your own answer / verdict
+2. The blind spot most likely to be missed
+3. Which assumptions, if wrong, would overturn the conclusion
+4. The smallest action that would verify it
+No "broadly workable, but watch out for…" filler. If the evidence isn't enough, just say "don't know / needs verification."
+
+[Problem] …
+[Goal] …
+[Constraints] …
+[Known facts] …
+```
+
+**中文 · 第一轮 prompt：**
+
+```
+你是被调用的独立模型，看不到我的方案，也别猜我会怎么想。
+只基于下面的问题/目标/约束/证据，从第一性原理给出独立判断：
+1) 你自己的方案 2) 最可能被忽略的盲区 3) 哪些前提错了会推翻结论 4) 最小验证动作。
+禁止"总体可行但需注意"空话；证据不足就直接写"不知道/需要验证"。
+【问题】…【目标】…【约束】…【已知事实】…
+```
+
+If this protocol helps or breaks, tell me what happened.
+If you want me to diagnose your AI workflow asynchronously, I'm opening 5 free workflow snapshots.
+
+## Limitations
+
+This is a multi-model collaboration **method** I actually use, plus the scaffolding I built around it, published as-is as an **experiment log**.
+- **Not turnkey software.** It hasn't been broadly tested.
+- **No promise it runs in your environment.** `scripts/fusion_api.py` is a reference skeleton — you wire up your own SDK calls.
+- **I won't promise to answer issues or PRs**, and I don't debug personal setups. If it's useful, fork it and make it yours.
+- The value is in the **method and the prompts**, not the code.
 
 ## The Problem
 
@@ -142,33 +195,7 @@ In June 2026, OpenRouter shipped Fusion (multi-model synthesis). This skill turn
 
 ## 30-Second Try
 
-You don't need to install anything. Open two AIs from **different companies** (e.g. ChatGPT + Claude), fill in your problem, and send the block below to each — **without telling them your leaning**. Let both answer independently, then synthesize. That's the smallest possible fusion. Full 7 steps in `references/01-protocol.md`.
-
-**English — Round 1 prompt:**
-
-```
-You're an independent model brought in for a genuine second opinion. You can't see my plan — and don't try to guess what I'm leaning toward. Working only from the problem, goal, constraints, and evidence below, give your own judgment from first principles:
-1. Your own answer / verdict
-2. The blind spot most likely to be missed
-3. Which assumptions, if wrong, would overturn the conclusion
-4. The smallest action that would verify it
-No "broadly workable, but watch out for…" filler. If the evidence isn't enough, just say "don't know / needs verification."
-
-[Problem] …
-[Goal] …
-[Constraints] …
-[Known facts] …
-```
-
-**中文 · 第一轮 prompt：**
-
-```
-你是被调用的独立模型，看不到我的方案，也别猜我会怎么想。
-只基于下面的问题/目标/约束/证据，从第一性原理给出独立判断：
-1) 你自己的方案 2) 最可能被忽略的盲区 3) 哪些前提错了会推翻结论 4) 最小验证动作。
-禁止"总体可行但需注意"空话；证据不足就直接写"不知道/需要验证"。
-【问题】…【目标】…【约束】…【已知事实】…
-```
+You don't need to install anything. The copy-paste Round 1 prompt (English + 中文) is at the top of this README under [**Try it in 30 seconds**](#try-it-in-30-seconds): open two AIs from **different companies** (e.g. ChatGPT + Claude), fill in your problem, and send the block to each — **without telling them your leaning**. Let both answer independently, then synthesize. That's the smallest possible fusion. Full 7 steps in `references/01-protocol.md`.
 
 ## Safety
 
@@ -198,7 +225,15 @@ No "broadly workable, but watch out for…" filler. If the evidence isn't enough
 
 Built by AaronYi
 
-<!-- TODO(Owner): collision-mode 末尾带了 X / LinkedIn / Substack 链接；fusion 是否也带社媒链接请你确认。要带的话补在这一行，例如：[X](…) · [LinkedIn](…) · [Substack](…) -->
+---
+
+## Stay in touch
+
+- **X / Twitter:** [@AaronYiaazw](https://x.com/AaronYiaazw)
+- **Substack:** [@aaronyi97](https://substack.com/@aaronyi97)
+- **Free Async AI Workflow Snapshot:** Send me one workflow, one failed AI task, or one place where your AI process keeps breaking. I'll tell you where I think it breaks. No live call required.
+
+This snapshot is an AI workflow diagnostic. It is not a certified code audit, security audit, or architecture certification.
 
 ## License
 

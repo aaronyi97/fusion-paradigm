@@ -54,8 +54,8 @@ No "broadly workable, but watch out for…" filler. If the evidence isn't enough
 ```
 
 If this protocol helps or breaks, tell me what happened.
-If you want me to diagnose your AI workflow asynchronously, I'm opening 5 free workflow snapshots.
-Start here: [Request a workflow teardown](https://github.com/aaronyi97/ai-collab-open-system/issues/1).
+If you want me to diagnose your AI workflow asynchronously, use the intake form below.
+Start here: [Request a free workflow snapshot](https://ai-workflow-intake-deploy.vercel.app/en/?src=github).
 
 ## Limitations
 
@@ -232,7 +232,7 @@ Built by AaronYi
 
 - **X / Twitter:** [@AaronYiaazw](https://x.com/AaronYiaazw)
 - **Substack:** [@aaronyi97](https://substack.com/@aaronyi97)
-- **Free Async AI Workflow Snapshot:** [Request a workflow teardown](https://github.com/aaronyi97/ai-collab-open-system/issues/1). Send me one workflow, one failed AI task, or one place where your AI process keeps breaking. I'll tell you where I think it breaks. No live call required.
+- **Free Async AI Workflow Snapshot:** [Request a free workflow snapshot](https://ai-workflow-intake-deploy.vercel.app/en/?src=github). Send me one workflow, one failed AI task, or one place where your AI process keeps breaking. I'll tell you where I think it breaks. No live call required.
 
 This snapshot is an AI workflow diagnostic. It is not a certified code audit, security audit, or architecture certification.
 
